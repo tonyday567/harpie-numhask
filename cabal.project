@@ -1,0 +1,6 @@
+packages:
+  harry-numhask.cabal
+  ../harry/harry.cabal
+
+write-ghc-environment-files: always
+
