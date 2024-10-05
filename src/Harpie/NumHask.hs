@@ -4,8 +4,8 @@
 {-# LANGUAGE RoleAnnotations #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE UndecidableInstances #-}
-{-# OPTIONS_GHC -Wno-orphans #-}
 {-# OPTIONS_GHC -Wno-incomplete-uni-patterns #-}
+{-# OPTIONS_GHC -Wno-orphans #-}
 {-# OPTIONS_GHC -Wno-redundant-constraints #-}
 
 -- | numhask orphan instances and shim for harpie.
@@ -21,13 +21,13 @@ module Harpie.NumHask
   )
 where
 
-import NumHask.Prelude as P hiding (Min, take, drop, diff, zipWith, empty, sequence, length, repeat, cycle, find)
-import Harpie.Fixed as F hiding (ident, undiag, mult, inverse, invtri, chol)
-import Harpie.Shape qualified as S
-import Harpie.Shape (KnownNats, Eval, Rank, GetDims, DeleteDims, type (++))
-import GHC.TypeNats
 import Data.Functor.Rep
 import Fcf qualified
+import GHC.TypeNats
+import Harpie.Fixed as F hiding (chol, ident, inverse, invtri, mult, undiag)
+import Harpie.Shape (DeleteDims, Eval, GetDims, KnownNats, Rank, type (++))
+import Harpie.Shape qualified as S
+import NumHask.Prelude as P hiding (Min, cycle, diff, drop, empty, find, length, repeat, sequence, take, zipWith)
 
 -- $setup
 --
@@ -68,6 +68,7 @@ import Fcf qualified
 -- UnsafeArray [2,3,4] [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
 
 -- * NumHask heirarchy
+
 instance
   ( Additive a,
     KnownNats s
@@ -227,7 +228,6 @@ instance
 -- [[49.36111111111111,-13.555555555555554,2.1111111111111107],
 --  [-13.555555555555554,3.7777777777777772,-0.5555555555555555],
 --  [2.1111111111111107,-0.5555555555555555,0.1111111111111111]]
---
 inverse :: (Eq a, ExpField a, KnownNat m) => Matrix m m a -> Matrix m m a
 inverse a = mult (invtri (transpose (chol a))) (invtri (chol a))
 
@@ -277,7 +277,7 @@ chol a =
                 ( sqrt
                     ( unsafeIndex a [i, i]
                         - sum
-                          ( (\k -> unsafeIndex l [j, k] ^ (2::Int))
+                          ( (\k -> unsafeIndex l [j, k] ^ (2 :: Int))
                               <$> ([0 .. (j - 1)] :: [Int])
                           )
                     )
