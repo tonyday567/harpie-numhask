@@ -1,6 +1,5 @@
 packages:
-  harry-numhask.cabal
-  ../harry/harry.cabal
+  harpie-numhask.cabal
 
 write-ghc-environment-files: always
 

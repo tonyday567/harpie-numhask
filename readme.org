@@ -1,7 +1,0 @@
-
-
-* harry-numhask
-
-[[https://hackage.haskell.org/package/harry-numhask][file:https://img.shields.io/hackage/v/harry-numhask.svg]] [[https://github.com/tonyday567/harry-numhask/actions?query=workflow%3Ahaskell-ci][file:https://github.com/tonyday567/harry-numhask/workflows/haskell-ci/badge.svg]]
-
-numhask shim and orphan instances for harry.

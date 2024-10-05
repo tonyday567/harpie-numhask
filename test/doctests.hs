@@ -5,4 +5,4 @@ import Test.DocTest (mainFromCabal)
 import Prelude (IO, (=<<))
 
 main :: IO ()
-main = mainFromCabal "harry-numhask" =<< getArgs
+main = mainFromCabal "harpie-numhask" =<< getArgs

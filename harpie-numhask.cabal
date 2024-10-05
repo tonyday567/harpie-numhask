@@ -1,5 +1,5 @@
 cabal-version: 3.0
-name: harry-numhask
+name: harpie-numhask
 version: 0.1
 license: BSD-3-Clause
 license-file: LICENSE
@@ -7,17 +7,17 @@ copyright: Tony Day (c) 2024
 category: math
 author: Tony Day
 maintainer: tonyday567@gmail.com
-homepage: https://github.com/tonyday567/numhask-array#readme
-bug-reports: https://github.com/tonyday567/numhask-array/issues
-synopsis: numhask shim for harry.
+homepage: https://github.com/tonyday567/harpie-numhask#readme
+bug-reports: https://github.com/tonyday567/harpie-numhask/issues
+synopsis: numhask shim for harpie.
 description:
-    This package provides orphans and interface into the [numhask](https://hackage.haskell.org/package/numhask) API for [harry](https://hackage.haskell.org/package/harry).
+    This package provides orphans and interface into the [numhask](https://hackage.haskell.org/package/numhask) API for [harpie](https://hackage.haskell.org/package/harpie).
 
     == Usage
 
     >>> {-# LANGUAGE RebindableSyntax #-}
     >>> import NumHask.Prelude
-    >>> import Harry.Fixed as F
+    >>> import Harpie.Fixed as F
 
 build-type: Simple
 tested-with:
@@ -28,7 +28,7 @@ extra-doc-files: ChangeLog.md
 
 source-repository head
     type: git
-    location: https://github.com/tonyday567/numhask-array
+    location: https://github.com/tonyday567/harpie-numhask
 
 common ghc-options-stanza
     ghc-options:
@@ -48,14 +48,14 @@ library
     import: ghc2021-stanza
     hs-source-dirs: src
     build-depends:
-        , harry
+        , harpie
         , adjunctions
         , base         >=4.14 && <5
         , first-class-families >= 0.8 && <0.9
         , prettyprinter >=1.7 && <1.8
         , numhask      >=0.12 && <0.13
     exposed-modules:
-        Harry.NumHask
+        Harpie.NumHask
 
 test-suite doctests
     import: ghc2021-stanza
@@ -65,7 +65,7 @@ test-suite doctests
     ghc-options: -threaded
     build-depends:
         , base
-        , harry
-        , harry-numhask
+        , harpie
+        , harpie-numhask
         , doctest-parallel >=0.3 && <0.4
     default-extensions: RebindableSyntax

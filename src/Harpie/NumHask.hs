@@ -8,8 +8,8 @@
 {-# OPTIONS_GHC -Wno-incomplete-uni-patterns #-}
 {-# OPTIONS_GHC -Wno-redundant-constraints #-}
 
--- | numhask orphan instances and shim for harry.
-module Harry.NumHask
+-- | numhask orphan instances and shim for harpie.
+module Harpie.NumHask
   ( -- * Usage
     -- $usage
     ident,
@@ -22,9 +22,9 @@ module Harry.NumHask
 where
 
 import NumHask.Prelude as P hiding (Min, take, drop, diff, zipWith, empty, sequence, length, repeat, cycle, find)
-import Harry.Fixed as F hiding (ident, undiag, mult, inverse, invtri, chol)
-import Harry.Shape qualified as S
-import Harry.Shape (KnownNats, Eval, Rank, GetDims, DeleteDims, type (++))
+import Harpie.Fixed as F hiding (ident, undiag, mult, inverse, invtri, chol)
+import Harpie.Shape qualified as S
+import Harpie.Shape (KnownNats, Eval, Rank, GetDims, DeleteDims, type (++))
 import GHC.TypeNats
 import Data.Functor.Rep
 import Fcf qualified
@@ -35,9 +35,9 @@ import Fcf qualified
 -- >>> :set -XDataKinds
 -- >>> :set -XRebindableSyntax
 -- >>> import NumHask.Prelude hiding (cycle, repeat, empty, diff, take, drop, zipWith, find)
--- >>> import Harry.Fixed qualified as F
--- >>> import Harry.Fixed (Array, array, range, shape, toDynamic)
--- >>> import Harry.NumHask
+-- >>> import Harpie.Fixed qualified as F
+-- >>> import Harpie.Fixed (Array, array, range, shape, toDynamic)
+-- >>> import Harpie.NumHask
 -- >>> import Prettyprinter hiding (dot,fill)
 --
 -- >>> s = 1 :: Array '[] Int
