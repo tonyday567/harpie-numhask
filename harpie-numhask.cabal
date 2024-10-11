@@ -1,6 +1,6 @@
 cabal-version: 3.0
 name: harpie-numhask
-version: 0.1
+version: 0.1.0.0
 license: BSD-3-Clause
 license-file: LICENSE
 copyright: Tony Day (c) 2024
@@ -18,12 +18,13 @@ description:
     >>> {-# LANGUAGE RebindableSyntax #-}
     >>> import NumHask.Prelude
     >>> import Harpie.Fixed as F
+    >>> import Harpie.Numhask qualified as N
 
 build-type: Simple
 tested-with:
     , GHC == 9.10.1
-    , GHC == 9.8.2
     , GHC == 9.6.5
+    , GHC == 9.8.2
 extra-doc-files: ChangeLog.md
 
 source-repository head
@@ -48,24 +49,21 @@ library
     import: ghc2021-stanza
     hs-source-dirs: src
     build-depends:
-        , harpie
-        , adjunctions
-        , base         >=4.14 && <5
-        , first-class-families >= 0.8 && <0.9
-        , prettyprinter >=1.7 && <1.8
-        , numhask      >=0.12 && <0.13
-    exposed-modules:
-        Harpie.NumHask
+        , adjunctions          >=4.4.2 && <4.5
+        , base                 >=4.14 && <5
+        , first-class-families >=0.8 && <0.9
+        , harpie               >=0.1.0 && <0.2
+        , numhask              >=0.12 && <0.13
+    exposed-modules: Harpie.NumHask
 
 test-suite doctests
     import: ghc2021-stanza
-    type: exitcode-stdio-1.0
-    hs-source-dirs: test
     main-is: doctests.hs
-    ghc-options: -threaded
+    hs-source-dirs: test
     build-depends:
-        , base
-        , harpie
-        , harpie-numhask
+        , base             >=4.14 && <5
         , doctest-parallel >=0.3 && <0.4
+        , harpie-numhask
     default-extensions: RebindableSyntax
+    ghc-options: -threaded
+    type: exitcode-stdio-1.0
