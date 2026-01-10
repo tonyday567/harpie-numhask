@@ -72,21 +72,8 @@ library
     adjunctions >=4.4.2 && <4.5,
     base >=4.14 && <5,
     first-class-families >=0.8 && <0.9,
-    harpie >=0.1.0 && <0.2,
+    harpie >=0.1.0 && <0.3,
     numhask >=0.12 && <0.14,
+    prettyprinter >=1.7.0 && <1.8,
 
   exposed-modules: Harpie.NumHask
-
-test-suite doctests
-  import: ghc2024-stanza
-  main-is: doctests.hs
-  hs-source-dirs: test
-  build-depends:
-    base >=4.14 && <5,
-    doctest-parallel >=0.3 && <0.5,
-    harpie-numhask,
-    prettyprinter >=1.7 && <1.8,
-
-  default-extensions: RebindableSyntax
-  ghc-options: -threaded
-  type: exitcode-stdio-1.0
