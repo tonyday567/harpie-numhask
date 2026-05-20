@@ -2,9 +2,3 @@ packages:
   harpie-numhask.cabal
 
 write-ghc-environment-files: always
-
-allow-newer:
-  adjunctions:base,
-  free:base,
-  indexed-traversable:base
-
