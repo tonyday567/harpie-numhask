@@ -1,4 +1,6 @@
 packages:
   harpie-numhask.cabal
+  ../numhask-free/numhask-free.cabal
+  ../harpie/harpie.cabal
 
 write-ghc-environment-files: always
