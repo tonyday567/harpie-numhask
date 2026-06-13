@@ -8,14 +8,14 @@
 
 -- | Square typed-array matrices and the Kleene-star eliminator.
 --
--- This module grafts the semiring carriers from "NumHask.Free.Matrix" onto
--- "Harpie.Fixed" arrays and provides an @O(n³)@ one-state elimination
+-- This module provides semiring carriers and a Kleene-star eliminator on
+-- "Harpie.Fixed" arrays via an @O(n³)@ one-state elimination
 -- algorithm for 'P.StarSemiring'.
 module Harpie.NumHask.Matrix
   ( -- * Kleene star on typed arrays
     starMatrix,
 
-    -- * Semiring carriers (re-exported from "NumHask.Free.Matrix")
+    -- * Semiring carriers
     Warshall (..),
     MinPlus (..),
     FieldStar (..),
@@ -26,7 +26,7 @@ import GHC.TypeNats (KnownNat)
 import Harpie.Fixed as F hiding (Matrix)
 import Harpie.Shape (KnownNats)
 import Harpie.Shape qualified as S
-import NumHask.Free.Matrix (FieldStar (..), MinPlus (..), Warshall (..))
+import NumHask.Free.Carriers (FieldStar (..), MinPlus (..), Warshall (..))
 import NumHask.Prelude as P hiding (Min, cycle, diff, drop, empty, find, length, repeat, sequence, take, zipWith)
 
 type Matrix m n a = F.Array '[m, n] a
